@@ -20,7 +20,7 @@ function App() {
             <UnOnOFF/>
             <UnOnOFF/>
 
-            <Page title={"Не контролируемые кнопки"}/>
+            <Page title={"Контролируемые кнопки"}/>
             <OnOFF on={on} setOn={setOn}/>
 
             <Accordion titleValue={"контролируемый список"} collapsed={collapsedAccordion}

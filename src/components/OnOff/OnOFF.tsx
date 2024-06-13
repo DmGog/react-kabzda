@@ -9,10 +9,6 @@ type OnOffPropsType = {
 export const OnOFF = (props: OnOffPropsType) => {
 
         const {on, setOn} = props
-        // const onClickOnHandler = (a: boolean) => setOn(a)
-        const onClickHandler = (a: boolean) => setOn(a)
-
-
         const onlyStyle = {
             display: "flex",
             gap: "10px",
@@ -52,10 +48,18 @@ export const OnOFF = (props: OnOffPropsType) => {
             border: "1px solid black",
             backgroundColor: on ? "green" : "red"
         }
+
+        const onClickOnHandler = () => {
+            setOn(true)
+        }
+
+        const onClickOffHandler = () => {
+            setOn(false)
+        }
         return (
             <div style={onlyStyle}>
-                <div style={onStyle} onClick={() => onClickHandler(true)}>ON</div>
-                <div style={ofStyle} onClick={() => onClickHandler(false)}>OFF</div>
+                <div style={onStyle} onClick={onClickOnHandler}>ON</div>
+                <div style={ofStyle} onClick={onClickOffHandler}>OFF</div>
                 <div style={indicatorStyle}></div>
             </div>
         );
