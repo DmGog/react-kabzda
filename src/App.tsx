@@ -2,23 +2,28 @@ import React, {useState} from "react";
 import "./App.css";
 import UnAccordion from "./components/Accordion/UnAccordion";
 import {UnRating} from "./components/Rating/UnRating";
-import {OnOff} from "./components/OnOff/OnOFF";
+import {UnOnOFF} from "./components/OnOff/UnOnOFF";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {Accordion} from "./components/Accordion/Accordion";
+import {OnOFF} from "./components/OnOff/OnOFF";
 
 function App() {
     console.log("App rendering")
 
     let [rating, setRating] = useState<RatingValueType>(3)
     const [collapsedAccordion, setCollapsedAccordion] = useState(false)
+    let [on, setOn] = useState(false)
 
     return (
         <div className={"myApp"}>
             <Page title={" Привет друг"}/>
-            <OnOff/>
-            <OnOff/>
+            <UnOnOFF/>
+            <UnOnOFF/>
 
-            <Accordion titleValue={"контролируемый"} collapsed={collapsedAccordion}
+            <Page title={"Не контролируемые кнопки"}/>
+            <OnOFF on={on} setOn={setOn}/>
+
+            <Accordion titleValue={"контролируемый список"} collapsed={collapsedAccordion}
                        setCollapsed={setCollapsedAccordion}/>
             Контролируемый рейтинг
             <Rating value={rating} onClick={setRating}/>

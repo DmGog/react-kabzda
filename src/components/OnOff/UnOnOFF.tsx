@@ -1,22 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 
 type OnOffPropsType = {
-    on: boolean
-    setOn: (on: boolean) => void
+    // on?: boolean
 }
 
 
-export const OnOFF = (props: OnOffPropsType) => {
+export const UnOnOFF = (props: OnOffPropsType) => {
 
-        const {on, setOn} = props
-        // const onClickOnHandler = (a: boolean) => setOn(a)
-        const onClickHandler = (a: boolean) => setOn(a)
+        let [on, setOn] = useState(false)
+
+        const onClickOnHandler = () => setOn(true)
+        const onClickOffHandler = () => setOn(false)
 
 
         const onlyStyle = {
             display: "flex",
             gap: "10px",
-            alignItems: "center",
+            alignItems: "center"
         }
 
         const onStyle = {
@@ -54,8 +54,8 @@ export const OnOFF = (props: OnOffPropsType) => {
         }
         return (
             <div style={onlyStyle}>
-                <div style={onStyle} onClick={() => onClickHandler(true)}>ON</div>
-                <div style={ofStyle} onClick={() => onClickHandler(false)}>OFF</div>
+                <div style={onStyle} onClick={onClickOnHandler}>ON</div>
+                <div style={ofStyle} onClick={onClickOffHandler}>OFF</div>
                 <div style={indicatorStyle}></div>
             </div>
         );
