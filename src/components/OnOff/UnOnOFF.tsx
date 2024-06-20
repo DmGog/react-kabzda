@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 
 type OnOffPropsType = {
-    // on?: boolean
+    defaultValue?: boolean
+    onChange: () => void
 }
 
 
 export const UnOnOFF = (props: OnOffPropsType) => {
 
-        let [on, setOn] = useState(false)
+        let [on, setOn] = useState(props.defaultValue ? props.defaultValue : false)
 
         const onClickOnHandler = () => setOn(true)
         const onClickOffHandler = () => setOn(false)
