@@ -17,7 +17,7 @@ function App() {
     return (
         <div className={"myApp"}>
             <Page title={" Привет друг"}/>
-            <UnOnOFF/>
+            <UnOnOFF />
             <UnOnOFF/>
 
             <Page title={"Контролируемые кнопки"}/>
