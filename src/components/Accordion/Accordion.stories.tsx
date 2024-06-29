@@ -17,19 +17,26 @@ export default {
 }
 
 const setCollapsedHandler = action("setCollapsed")
+
+const onClickCallback = action("some item was clicked")
 export const CollapsedAccordion = () => {
     return <Accordion titleValue={"CollapsedAccordion"} collapsed={true}
-                      setCollapsed={setCollapsedHandler}/>
+                      setCollapsed={setCollapsedHandler} items={[]} onClick={onClickCallback}/>
 }
 
 export const OpenedAccordion = () => {
     return <Accordion titleValue={"OpenedAccordion"} collapsed={false}
-                      setCollapsed={setCollapsedHandler}/>
+                      setCollapsed={setCollapsedHandler}
+                      items={[{title: "Борщ", value: "1"}, {title: "картошка", value: "2"}]} onClick={onClickCallback}/>
 }
 
 export const AccordionDemo = () => {
     const [collapsed, setCollapsed] = useState(false)
 
     return <Accordion titleValue={"AccordionDemo"} collapsed={collapsed}
-                      setCollapsed={() => setCollapsed(!collapsed)}/>
+                      setCollapsed={() => setCollapsed(!collapsed)}
+                      items={[{title: "Борщ", value: "1"}, {title: "картошка", value: "2"}]}
+                      onClick={onClickCallback}
+
+    />
 }

@@ -13,7 +13,7 @@ function UnAccordion(props: AccordionPropsType) {
     }
 
 
-    console.log("Accordion rendering")
+    // console.log("Accordion rendering")
     return (<div>
         <AccordionTitle onClick={onClickHandler} title={props.titleValue}/>
         {/*<button onClick={onClickHandler}>свернуть-развернуть</button>*/}
@@ -29,7 +29,7 @@ type AccordionTitlePropsType = {
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-    console.log("AccordionTitle rendering")
+    // console.log("AccordionTitle rendering")
 
     return (
         <h3 onClick={props.onClick} className={"accordion-title"}> {
@@ -40,7 +40,7 @@ function AccordionTitle(props: AccordionTitlePropsType) {
 }
 
 function AccordionBody() {
-    console.log("AccordionBody rendering")
+    // console.log("AccordionBody rendering")
     return (
         <ul>
             <li>Борщ</li>

@@ -6,7 +6,7 @@ type RatingPropsType = {
 }
 
 export function UnRating(props: RatingPropsType) {
-    console.log("Rating rendering")
+    // console.log("Rating rendering")
 
     let [rating, setRating] = useState(props.defaultValue ? props.defaultValue : 0)
 
@@ -31,7 +31,7 @@ type StarPropsType = {
 }
 
 function Star(props: StarPropsType) {
-    console.log("Star rendering")
+    // console.log("Star rendering")
     return <button onClick={() => {
         props.setRating(props.rating)
     }}>{props.selected ? "★" : "☆"}</button>

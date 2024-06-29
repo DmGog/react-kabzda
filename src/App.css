@@ -45,11 +45,52 @@
     }
 }
 
-.accordion-title, button{
+.accordion-title, button {
     cursor: pointer;
     transition: ease-in-out 0.5s;
 }
-.accordion-title:hover{
+
+.accordion-title:hover {
     color: green;
     transform: scale(1.5);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select {
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #cb1f1f;
+}
+
+.select-options {
+    width: 100px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #a19d9d;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.select-option {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+
+}
+
+.select-option:last-child {
+    border-bottom: none;
+}
+
+.select-option:hover {
+    background-color: #f0f0f0;
 }
