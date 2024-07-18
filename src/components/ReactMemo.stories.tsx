@@ -15,7 +15,7 @@ const UsersSecret = (props: { users: string[] }) => {
 
 const Users = memo(UsersSecret)
 
-export const Example = () => {
+export const HeplsToReactMemoExample = () => {
 
     const [counter, setCounter] = useState(0)
     const [users, setUsers] = useState(["krot", "enot", "banan"])

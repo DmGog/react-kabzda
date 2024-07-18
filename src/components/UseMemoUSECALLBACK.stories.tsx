@@ -1,4 +1,4 @@
-import {memo, useMemo, useState} from "react";
+import {memo, useCallback, useMemo, useState} from "react";
 import {number} from "prop-types";
 
 export default {
@@ -69,3 +69,46 @@ export const Example = () => {
         <Users users={newArray}/>
     </>
 }
+
+
+////////////////////////////////////////////////////////// USE CALLBACK
+export const LikeUseCallback = () => {
+    console.log("likeUseCallback")
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState(["React", "JS", "CSS"])
+
+    // мемоизируем фукцию, чтобы она не вызывалась если не меняются books
+
+    // const memoAddBook = useMemo(() => {
+    //     return () => {
+    //         const copy = [...books, "HTML" + new Date().getTime()]
+    //         setBooks(copy)
+    //     }
+    // }, [books])
+
+    // мемоизируем фукцию с помощью хука UseCallback, чтобы она не вызывалась если не меняются books
+
+    const memoAddBook = useCallback(() => {
+        const copy = [...books, "HTML" + new Date().getTime()]
+        setBooks(copy)
+    }, [books])
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+
+        {counter}
+        <Book addBook={memoAddBook}/>
+    </>
+}
+
+type BooksSecretPropsType = {
+    addBook: () => void
+}
+
+const BooksSecret = (props: BooksSecretPropsType) => {
+    console.log("books")
+    return <div>
+        <button onClick={props.addBook}>add book</button>
+    </div>
+}
+
+const Book = memo(BooksSecret)
